@@ -9,7 +9,7 @@ import { FiYoutube } from "react-icons/fi";
 const Footer = () => {
   return (
     <footer
-      className="pt-14 pb-8 px-5 sm:px-8 lg:px-10 text-white"
+      className="pt-14 pb-8 px-2 sm:px-8 lg:px-10 text-white"
       style={{ backgroundColor: "var(--secondaryColor)" }}
     >
       <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6 py-3 sm:py-4">
@@ -17,7 +17,7 @@ const Footer = () => {
           <div>
             <Link href="/">
               <Image
-                src="/assets/sitelogo.png"
+                src="/assets/mainLogo.png"
                 alt="AutoExperts Logo"
                 width={320}
                 height={200}
