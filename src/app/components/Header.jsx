@@ -243,7 +243,7 @@ const Header = () => {
 
               <a
                 href="tel:9717884777"
-                className="text-[18px] hover:text-[var(--mainColor)] transition-all duration-300"
+                className="text-base sm:text-lg hover:text-[var(--mainColor)] transition-all duration-300"
               >
                 9717884777
               </a>

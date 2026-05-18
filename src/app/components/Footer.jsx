@@ -9,10 +9,10 @@ import { FiYoutube } from "react-icons/fi";
 const Footer = () => {
   return (
     <footer
-      className="pt-14 pb-8 px-5 sm:px-8 lg:px-16 text-white"
+      className="pt-14 pb-8 px-5 sm:px-8 lg:px-10 text-white"
       style={{ backgroundColor: "var(--secondaryColor)" }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link href="/">
