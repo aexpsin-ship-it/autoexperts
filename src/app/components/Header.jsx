@@ -16,16 +16,24 @@ const Header = () => {
       style={{ backgroundColor: "var(--secondaryColor)" }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
-                <Link href="/">
-          <Image
-            src="/assets/sitelogo.png"
-            alt="Site Logo"
-            width={320}
-            height={200}
-            priority
-            className="w-[140px] sm:w-[200px] md:w-[260px] lg:w-[320px] h-auto object-contain"
-          />
-        </Link>
+    <Link
+  href="/"
+  className="flex items-center shrink-0"
+>
+  <Image
+    src="/assets/sitelogo.png"
+    alt="AutoExperts Logo"
+    width={500}
+    height={250}
+    priority
+    quality={100}
+    sizes="(max-width: 640px) 160px,
+           (max-width: 768px) 220px,
+           (max-width: 1024px) 280px,
+           340px"
+    className="w-[160px] sm:w-[220px] md:w-[280px] lg:w-[340px] xl:w-[360px] h-auto object-contain select-none"
+  />
+</Link>
         <nav className="hidden md:flex items-center">
           <ul className="flex items-center gap-8 lg:gap-12">
             <li className="relative group">
