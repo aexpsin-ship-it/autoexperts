@@ -12,13 +12,13 @@ const Header = () => {
 
   return (
     <header
-      className="w-full fixed top-0 left-0 right-0 z-50 text-white shadow-lg transition-all duration-300"
+      className="w-full font-poppins fixed top-0 left-0 right-0 z-50 text-white shadow-lg transition-all duration-300"
       style={{ backgroundColor: "var(--secondaryColor)" }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
 <Link href="/" className="flex items-center shrink-0">
   <Image
-    src="/assets/mainLogo.png"
+    src="/assets/mainLogo3.png"
     alt="AutoExperts Logo"
     width={500}
     height={250}

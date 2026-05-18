@@ -32,7 +32,7 @@ const HeroSection = () => {
   }, [nextSlide]);
 
   return (
-    <section className="relative w-full h-[85vh] sm:h-screen overflow-hidden">
+    <section className="relative w-full py-6 h-[85vh] sm:h-screen overflow-hidden">
 
       {/* Slides */}
       {slides.map((slide, index) => (
