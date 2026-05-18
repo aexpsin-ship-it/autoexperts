@@ -11,7 +11,10 @@ const Header = () => {
   const [mobileExpertOpen, setMobileExpertOpen] = useState(false);
 
   return (
-    <header className="w-full bg-gray-900 text-white sticky top-0 z-50">
+    <header
+      className="w-full sticky top-0 z-50 text-white shadow-lg"
+      style={{ backgroundColor: "var(--secondaryColor)" }}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-6 py-4">
                 <Link href="/">
           <Image
@@ -20,77 +23,79 @@ const Header = () => {
             width={320}
             height={200}
             priority
-            className="w-[250px] md:w-[320px] lg:w-[320px] h-auto object-cover"
+            className="w-[220px] md:w-[280px] lg:w-[320px] h-auto object-cover"
           />
         </Link>
         <nav className="hidden md:flex items-center">
           <ul className="flex items-center gap-8 lg:gap-12">
             <li className="relative group">
-              <button className="flex items-center gap-1 text-[16px] lg:text-[19px] font-medium hover:text-yellow-400 transition-all duration-300">
+              <button className="flex items-center gap-1 text-[16px] lg:text-[19px] font-medium transition-all duration-300 ">
                 Who We Are
+
                 <ChevronDown
                   size={18}
                   className="group-hover:rotate-180 transition-transform duration-300"
                 />
               </button>
               <div className="absolute left-0 top-[180%] w-64 bg-white text-black rounded-xl shadow-2xl opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-500 ease-in-out overflow-hidden">
-                
+
                 <Link
                   href="/about-us"
-                  className="block px-5  py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   About Us
                 </Link>
 
                 <Link
                   href="/our-people"
-                  className="block px-5 border-t border-gray-700 py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   Our People
                 </Link>
 
                 <Link
                   href="/infrastructure"
-                  className="block px-5 border-t border-gray-700 py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   Infrastructure
                 </Link>
 
                 <Link
                   href="/sustainability"
-                  className="block px-5 border-t border-gray-700 py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   Sustainability
                 </Link>
               </div>
             </li>
             <li className="relative group">
-              <button className="flex items-center gap-1 text-[16px] lg:text-[19px] font-medium hover:text-yellow-400 transition-all duration-300">
+              <button className="flex items-center gap-1 text-[16px] lg:text-[19px] font-medium transition-all duration-300 ">
                 Expertise
+
                 <ChevronDown
                   size={18}
                   className="group-hover:rotate-180 transition-transform duration-300"
                 />
               </button>
               <div className="absolute left-0 top-[180%] w-64 bg-white text-black rounded-xl shadow-2xl opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-500 ease-in-out overflow-hidden">
-                
+
                 <Link
                   href="/why-us"
-                  className="block px-5  py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   Why Us
                 </Link>
 
                 <Link
                   href="/what-we-do"
-                  className="block px-5 border-t border-gray-700 py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   What We Do
                 </Link>
 
                 <Link
                   href="/part-sourcing"
-                  className="block px-5 border-t border-gray-700 py-4 hover:bg-gray-100 transition-all duration-300"
+                  className="block px-5 py-4 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
                 >
                   Part Sourcing
                 </Link>
@@ -98,14 +103,18 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="hidden md:flex flex-row text-right">
-          <span className="text-[15px] lg:text-[18px] font-medium text-gray-300">
-            <Phone className="p-2 rounded-full w-10 h-10" />
-          </span>
+        <div className="hidden md:flex items-center gap-3">
+          
+          <div
+            className="p-2 rounded-full transition-all duration-300"
+            // style={{ backgroundColor: "var(--mainColor)" }}
+          >
+            <Phone className="w-5 h-5 text-white" />
+          </div>
 
           <a
             href="tel:9717884777"
-            className="text-[17px] lg:text-[21px] font-semibold hover:text-[--secondaryColor] transition-all duration-300"
+            className="text-[17px] lg:text-[21px] font-semibold transition-all duration-300  hover:opacity-75 transition-all duration-300 ease-in-out "
           >
             9717884777
           </a>
@@ -118,18 +127,21 @@ const Header = () => {
         </button>
       </div>
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-gray-800 ${
+        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           menuOpen ? "max-h-screen py-4" : "max-h-0"
         }`}
+        style={{ backgroundColor: "var(--secondaryColor)" }}
       >
         <div className="px-4">
           <ul className="flex flex-col gap-4">
+
             <li>
               <button
                 onClick={() => setMobileWhoOpen(!mobileWhoOpen)}
-                className="w-full flex items-center justify-between text-[18px] font-medium py-2"
+                className="w-full flex items-center justify-between text-[18px] font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
               >
                 Who We Are
+
                 <ChevronDown
                   size={20}
                   className={`transition-transform duration-300 ${
@@ -143,20 +155,47 @@ const Header = () => {
                   mobileWhoOpen ? "max-h-96 mt-2" : "max-h-0"
                 }`}
               >
-                <div className="flex flex-col gap-3 text-gray-300">
-                  <Link href="/about-us">About Us</Link>
-                  <Link href="/our-people">Our People</Link>
-                  <Link href="/infrastructure">Infrastructure</Link>
-                  <Link href="/sustainability">Sustainability</Link>
+                <div className="flex flex-col text-gray-300">
+
+                  <Link
+                    href="/about-us"
+                    className="py-3 border-b border-gray-700 hover:text-[var(--secondaryColor)] transition-all duration-300"
+                  >
+                    About Us
+                  </Link>
+
+                  <Link
+                    href="/our-people"
+                    className="py-3 border-b border-gray-700 hover:text-[var(--secondaryColor)] transition-all duration-300"
+                  >
+                    Our People
+                  </Link>
+
+                  <Link
+                    href="/infrastructure"
+                    className="py-3 border-b border-gray-700 hover:text-[var(--secondaryColor)] transition-all duration-300"
+                  >
+                    Infrastructure
+                  </Link>
+
+                  <Link
+                    href="/sustainability"
+                    className="py-3 hover:text-[var(--secondaryColor)] transition-all duration-300"
+                  >
+                    Sustainability
+                  </Link>
                 </div>
               </div>
             </li>
+
+            {/* Mobile Expertise */}
             <li>
               <button
                 onClick={() => setMobileExpertOpen(!mobileExpertOpen)}
-                className="w-full flex items-center justify-between text-[18px] font-medium py-2"
+                className="w-full flex items-center justify-between text-[18px] font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
               >
                 Expertise
+
                 <ChevronDown
                   size={20}
                   className={`transition-transform duration-300 ${
@@ -166,23 +205,49 @@ const Header = () => {
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out  ${
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
                   mobileExpertOpen ? "max-h-96 mt-2" : "max-h-0"
                 }`}
               >
-                <div className="flex flex-col gap-3  text-gray-300">
-                  <Link href="/why-us">Why Us</Link>
-                  <Link href="/what-we-do">What We Do</Link>
-                  <Link href="/part-sourcing">Part Sourcing</Link>
+                <div className="flex flex-col text-gray-300">
+
+                  <Link
+                    href="/why-us"
+                    className="py-3 border-b border-gray-700 hover:text-[var(--mainColor)] transition-all duration-300"
+                  >
+                    Why Us
+                  </Link>
+
+                  <Link
+                    href="/what-we-do"
+                    className="py-3 border-b border-gray-700 hover:text-[var(--mainColor)] transition-all duration-300"
+                  >
+                    What We Do
+                  </Link>
+
+                  <Link
+                    href="/part-sourcing"
+                    className="py-3 hover:text-[var(--mainColor)] transition-all duration-300"
+                  >
+                    Part Sourcing
+                  </Link>
                 </div>
               </div>
             </li>
-            <li className="pt-4 flex flex-row items-center align-middle border-t border-gray-700">
-              <Phone className="p-2 rounded-full w-10 h-10" />
+
+            {/* Mobile Call */}
+            <li className="pt-4 flex items-center gap-3 border-t border-gray-700">
+              
+              <div
+                className="p-2 rounded-full"
+                style={{ backgroundColor: "var(--mainColor)" }}
+              >
+                <Phone className="w-5 h-5 text-white" />
+              </div>
 
               <a
                 href="tel:9717884777"
-                className="block mt-2 text-[18px] hover:text-[--secondaryColor] transition-all duration-300"
+                className="text-[18px] hover:text-[var(--mainColor)] transition-all duration-300"
               >
                 9717884777
               </a>
