@@ -12,10 +12,10 @@ const Header = () => {
 
   return (
     <header
-      className="w-full sticky top-0 z-50 text-white shadow-lg"
+      className="w-full fixed top-0 left-0 right-0 z-50 text-white shadow-lg transition-all duration-300"
       style={{ backgroundColor: "var(--secondaryColor)" }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
                 <Link href="/">
           <Image
             src="/assets/sitelogo.png"
@@ -23,13 +23,13 @@ const Header = () => {
             width={320}
             height={200}
             priority
-            className="w-[220px] md:w-[280px] lg:w-[320px] h-auto object-cover"
+            className="w-[140px] sm:w-[200px] md:w-[260px] lg:w-[320px] h-auto object-contain"
           />
         </Link>
         <nav className="hidden md:flex items-center">
           <ul className="flex items-center gap-8 lg:gap-12">
             <li className="relative group">
-              <button className="flex items-center gap-1 text-[16px] lg:text-[19px] font-medium transition-all duration-300 ">
+              <button className="flex items-center gap-1 text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 ">
                 Who We Are
 
                 <ChevronDown
@@ -69,7 +69,7 @@ const Header = () => {
               </div>
             </li>
             <li className="relative group">
-              <button className="flex items-center gap-1 text-[16px] lg:text-[19px] font-medium transition-all duration-300 ">
+              <button className="flex items-center gap-1 text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 ">
                 Expertise
 
                 <ChevronDown
@@ -114,7 +114,7 @@ const Header = () => {
 
           <a
             href="tel:9717884777"
-            className="text-[17px] lg:text-[21px] font-semibold transition-all duration-300  hover:opacity-75 transition-all duration-300 ease-in-out "
+            className="text-sm sm:text-base lg:text-xl font-semibold transition-all duration-300 hover:opacity-75"
           >
             9717884777
           </a>
@@ -138,7 +138,7 @@ const Header = () => {
             <li>
               <button
                 onClick={() => setMobileWhoOpen(!mobileWhoOpen)}
-                className="w-full flex items-center justify-between text-[18px] font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
+                className="w-full flex items-center justify-between text-base sm:text-lg font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
               >
                 Who We Are
 
@@ -187,12 +187,10 @@ const Header = () => {
                 </div>
               </div>
             </li>
-
-            {/* Mobile Expertise */}
             <li>
               <button
                 onClick={() => setMobileExpertOpen(!mobileExpertOpen)}
-                className="w-full flex items-center justify-between text-[18px] font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
+                className="w-full flex items-center justify-between text-base sm:text-lg font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
               >
                 Expertise
 
@@ -234,13 +232,11 @@ const Header = () => {
                 </div>
               </div>
             </li>
-
-            {/* Mobile Call */}
-            <li className="pt-4 flex items-center gap-3 border-t border-gray-700">
+            <li className="pt-4 flex items-center border-t border-gray-700">
               
               <div
                 className="p-2 rounded-full"
-                style={{ backgroundColor: "var(--mainColor)" }}
+                // style={{ backgroundColor: "var(--mainColor)" }}
               >
                 <Phone className="w-5 h-5 text-white" />
               </div>

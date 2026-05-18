@@ -3,11 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 
 const Footer = () => {
@@ -23,9 +19,10 @@ const Footer = () => {
               <Image
                 src="/assets/sitelogo.png"
                 alt="AutoExperts Logo"
-                width={240}
-                height={120}
-                className="w-[180px] md:w-[240px] h-auto object-contain"
+                width={320}
+                height={200}
+                priority
+                className="w-[220px] md:w-[280px] lg:w-[320px] h-auto object-cover"
               />
             </Link>
 
@@ -35,43 +32,36 @@ const Footer = () => {
               services with innovation and sustainability.
             </p>
             <div className="flex items-center gap-4 mt-6">
-
               <a
                 href="#"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-[var(--mainColor)] transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center bg-white/10 text-white opacity-90 hover:opacity-100 hover:bg-[var(--mainColor)] hover:scale-110 transition-all duration-300 ease-in-out"
               >
                 <FaFacebookF size={16} />
               </a>
-
               <a
                 href="#"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-[var(--mainColor)] transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center bg-white/10 text-white opacity-90 hover:opacity-100 hover:bg-red-600 hover:scale-110 transition-all duration-300 ease-in-out"
               >
                 <FiYoutube size={18} />
               </a>
-
               <a
                 href="#"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-[var(--mainColor)] transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center bg-white/10 text-white opacity-90 hover:opacity-100 hover:bg-pink-600 hover:scale-110 transition-all duration-300 ease-in-out"
               >
                 <FaInstagram size={18} />
               </a>
-
               <a
                 href="#"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10  transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center bg-white/10 text-white opacity-90 hover:opacity-100 hover:bg-green-500 hover:scale-110 transition-all duration-300 ease-in-out"
               >
                 <FaWhatsapp size={18} />
               </a>
             </div>
           </div>
           <div>
-            <h3 className="text-[22px] font-semibold mb-6">
-              Who We Are
-            </h3>
+            <h3 className="text-[22px] font-semibold mb-6">Who We Are</h3>
 
             <ul className="space-y-4 text-gray-300">
-
               <li>
                 <Link
                   href="/about-hs"
@@ -112,12 +102,9 @@ const Footer = () => {
 
           {/* Experts */}
           <div>
-            <h3 className="text-[22px] font-semibold mb-6">
-              Experts
-            </h3>
+            <h3 className="text-[22px] font-semibold mb-6">Experts</h3>
 
             <ul className="space-y-4 text-gray-300">
-
               <li>
                 <Link
                   href="/why-us"
@@ -147,12 +134,9 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-[22px] font-semibold mb-6">
-              Contact Us
-            </h3>
+            <h3 className="text-[22px] font-semibold mb-6">Contact Us</h3>
 
             <div className="space-y-5 text-gray-300">
-
               <p className="leading-7">
                 AutoExperts delivers premium automotive services and sourcing
                 solutions with trusted industry experience.
@@ -175,9 +159,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 text-white mt-12 pt-6 text-center text-md text-gray-400">
-          © {new Date().getFullYear()} AUTOEXPERTS.
-          All Rights Reserved.
+        <div className="border-t border-white/10 text-white mt-12 pt-6 text-center text-md text-white">
+          © {new Date().getFullYear()} AUTOEXPERTS. All Rights Reserved.
         </div>
       </div>
     </footer>
