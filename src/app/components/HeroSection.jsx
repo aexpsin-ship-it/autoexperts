@@ -1,19 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { slides } from "../data";
 
-const HeroSection = () => {
+export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Next Slide
-  const nextSlide = useCallback(() => {
+  const nextSlide = () => {
     setCurrentSlide((prev) =>
       prev === slides.length - 1 ? 0 : prev + 1
     );
-  }, []);
+  };
 
   // Previous Slide
   const prevSlide = () => {
@@ -22,26 +22,47 @@ const HeroSection = () => {
     );
   };
 
+  // Keyboard Navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") prevSlide();
+      if (e.key === "ArrowRight") nextSlide();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   // Auto Slide
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentSlide((prev) =>
+        prev === slides.length - 1 ? 0 : prev + 1
+      );
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, []);
 
   return (
-    <section className="relative w-full py-6 h-[85vh] sm:h-screen overflow-hidden">
-
+    <section
+      className="relative w-full overflow-hidden bg-black h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-screen"
+      role="region"
+      aria-label="Hero Slider"
+    >
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-all duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
             index === currentSlide
-              ? "opacity-100 scale-100 z-20"
-              : "opacity-0 scale-110 z-10"
+              ? "opacity-100 translate-x-0 z-20"
+              : index < currentSlide
+              ? "opacity-0 -translate-x-10 z-10"
+              : "opacity-0 translate-x-10 z-10"
           }`}
         >
           {/* Background Image */}
@@ -50,97 +71,58 @@ const HeroSection = () => {
             alt={slide.title}
             fill
             priority={index === 0}
-            quality={100}
-            className="object-cover"
+            quality={75}
+            sizes="100vw"
+            className="object-cover object-center"
           />
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0  z-10" />
 
-          {/* Content */}
-          <div className="relative z-30 flex items-center h-full">
-            <div className="max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-10">
-
-              <div className="max-w-3xl animate-fadeInUp">
-
-                {/* Small Tag */}
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-5">
-                  <span className="w-2 h-2 rounded-full bg-[var(--mainColor)]"></span>
-
-                  <span className="text-white text-xs sm:text-sm font-medium tracking-wide">
-                    AUTOEXPERTS SOLUTIONS
-                  </span>
-                </div>
-
-                {/* Heading */}
-                <h1 className="text-white font-bold leading-tight text-[34px] sm:text-[48px] md:text-[60px] lg:text-[72px]">
-                  {slide.title}
-                </h1>
-
-                {/* Description */}
-                <p className="text-gray-200 mt-5 leading-7 sm:leading-8 text-[15px] sm:text-[17px] md:text-[19px] max-w-2xl">
-                  {slide.subtitle}
-                </p>
-
-                {/* Buttons */}
-                <div className="flex flex-wrap items-center gap-4 mt-8">
-
-                  <button
-                    className="px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 shadow-xl"
-                    style={{
-                      backgroundColor: "var(--mainColor)",
-                    }}
-                  >
-                    {slide.button}
-                  </button>
-
-                  <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white text-white hover:bg-white hover:text-[var(--secondaryColor)] transition-all duration-300 font-semibold text-sm sm:text-base">
-                    Learn More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Gradient */}
+          <div className="absolute inset-0  via-black/60 to-transparent z-10" />
         </div>
       ))}
 
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-[var(--mainColor)] transition-all duration-300"
+        className="absolute left-2 sm:left-4 md:left-5 top-1/2 -translate-y-1/2 z-40 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-black/30 hover:bg-[#D4AF37] backdrop-blur-md border border-white/10 flex items-center justify-center transition-all duration-500 group"
+        aria-label="Previous Slide"
       >
-        <ChevronLeft size={28} />
+        <ChevronLeft
+          size={16}
+          className="text-white group-hover:text-black transition-all duration-300"
+        />
       </button>
 
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-[var(--mainColor)] transition-all duration-300"
+        className="absolute right-2 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 z-40 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-black/30 hover:bg-[#D4AF37] backdrop-blur-md border border-white/10 flex items-center justify-center transition-all duration-500 group"
+        aria-label="Next Slide"
       >
-        <ChevronRight size={28} />
+        <ChevronRight
+          size={16}
+          className="text-white group-hover:text-black transition-all duration-300"
+        />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3">
+      <div className="absolute bottom-3 sm:bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`rounded-full transition-all duration-300 ${
+            className={`rounded-full transition-all duration-500 ${
               currentSlide === index
-                ? "w-10 h-3 bg-[var(--mainColor)]"
-                : "w-3 h-3 bg-white/50 hover:bg-white"
+                ? "w-6 sm:w-8 md:w-10 h-2 bg-[#D4AF37]"
+                : "w-2 h-2 bg-white/40 hover:bg-white"
             }`}
-          ></button>
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
-      </div>
-
-      {/* Slide Counter */}
-      <div className="absolute top-5 right-5 sm:top-8 sm:right-8 z-40 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-white text-sm font-medium">
-        {currentSlide + 1} / {slides.length}
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

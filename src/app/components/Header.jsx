@@ -2,258 +2,73 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import React from "react";
+import { Phone } from "lucide-react";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileWhoOpen, setMobileWhoOpen] = useState(false);
-  const [mobileExpertOpen, setMobileExpertOpen] = useState(false);
-
   return (
-    <header
-      className="w-full font-poppins fixed top-0 left-0 right-0 z-50 text-white shadow-lg transition-all duration-300"
-      style={{ backgroundColor: "var(--secondaryColor)" }}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
-<Link href="/" className="flex items-center shrink-0">
-  <Image
-    src="/assets/mainLogo3.png"
-    alt="AutoExperts Logo"
-    width={500}
-    height={250}
-    priority
-    quality={100}
-    sizes="(max-width: 640px) 160px, (max-width: 768px) 220px, (max-width: 1024px) 280px, 340px"
-    className="w-[160px] sm:w-[220px] md:w-[280px] lg:w-[340px] xl:w-[360px] h-auto object-contain select-none"
-  />
-</Link>
-        <nav className="hidden md:flex items-center">
-          <ul className="flex items-center gap-8 lg:gap-12">
-            <li className="relative group">
-              <button className="flex items-center gap-1 text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 ">
-                Who We Are
+    <>
+      <style>{`
+        @keyframes ping {
+          0% {
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+          }
+        }
+        .animate-ping-small {
+          animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+      `}</style>
+      <header className="fixed top-0 left-0 w-full z-50 bg-[var(--primary)]/95 backdrop-blur-xl border-b border-white/10 shadow-lg">
+        <div className="max-w-7xl mx-auto h-[80px] sm:h-[88px] flex items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/assets/mainLogo3.png"
+              alt="AutoExperts Logo"
+              width={340}
+              height={120}
+              priority
+              quality={95}
+              className="w-[160px] sm:w-[220px] lg:w-[330px] h-auto object-contain"
+            />
+          </Link>
+          <div className="hidden lg:flex items-center gap-3 px-4 py-2 rounded-lg border border-[#D4AF37]/30 bg-[#D4AF37]/5">
+            <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center">
+              <Phone className="w-5 h-5 text-[#D4AF37]" />
+            </div>
 
-                <ChevronDown
-                  size={18}
-                  className="group-hover:rotate-180 transition-transform duration-300"
-                />
-              </button>
-              <div className="absolute left-0 top-[180%] w-64 bg-white text-black rounded-xl shadow-2xl opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-500 ease-in-out overflow-hidden">
-
-                <Link
-                  href="/about-us"
-                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  About Us
-                </Link>
-
-                <Link
-                  href="/our-people"
-                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  Our People
-                </Link>
-
-                <Link
-                  href="/infrastructure"
-                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  Infrastructure
-                </Link>
-
-                <Link
-                  href="/sustainability"
-                  className="block px-5 py-4 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  Sustainability
-                </Link>
-              </div>
-            </li>
-            <li className="relative group">
-              <button className="flex items-center gap-1 text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 ">
-                Expertise
-
-                <ChevronDown
-                  size={18}
-                  className="group-hover:rotate-180 transition-transform duration-300"
-                />
-              </button>
-              <div className="absolute left-0 top-[180%] w-64 bg-white text-black rounded-xl shadow-2xl opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-500 ease-in-out overflow-hidden">
-
-                <Link
-                  href="/why-us"
-                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  Why Us
-                </Link>
-
-                <Link
-                  href="/what-we-do"
-                  className="block px-5 py-4 border-b border-gray-200 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  What We Do
-                </Link>
-
-                <Link
-                  href="/part-sourcing"
-                  className="block px-5 py-4 hover:bg-gray-100 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                >
-                  Part Sourcing
-                </Link>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <div className="hidden md:flex items-center gap-3">
-          
-          <div
-            className="p-2 rounded-full transition-all duration-300"
-            // style={{ backgroundColor: "var(--mainColor)" }}
-          >
-            <Phone className="w-5 h-5 text-white" />
+            <a
+              href="tel:9717884777"
+              className="text-white hover:text-[#D4AF37] font-bold text-lg tracking-[3px] uppercase transition-all duration-300"
+              style={{
+                fontFamily: "'Orbitron', sans-serif",
+              }}
+            >
+              9717884777
+            </a>
           </div>
 
           <a
             href="tel:9717884777"
-            className="text-sm sm:text-base lg:text-xl font-semibold transition-all duration-300 hover:opacity-75"
+            className="lg:hidden flex items-center gap-2 px-4 py-2  hover:bg-[#D4AF37]/20 transition-all duration-300"
           >
-            9717884777
+            <div className="relative">
+              <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+                <Phone className="w-4 h-4 text-[#D4AF37]" />
+              </div>
+              <div className="absolute inset-0 rounded-full "></div>
+            </div>
+            <span className="text-[#D4AF37] font-semibold text-sm hidden sm:inline">Call Us</span>
           </a>
         </div>
-        <button
-          className="md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={30} /> : <Menu size={30} />}
-        </button>
-      </div>
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          menuOpen ? "max-h-screen py-4" : "max-h-0"
-        }`}
-        style={{ backgroundColor: "var(--secondaryColor)" }}
-      >
-        <div className="px-4">
-          <ul className="flex flex-col gap-4">
-
-            <li>
-              <button
-                onClick={() => setMobileWhoOpen(!mobileWhoOpen)}
-                className="w-full flex items-center justify-between text-base sm:text-lg font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
-              >
-                Who We Are
-
-                <ChevronDown
-                  size={20}
-                  className={`transition-transform duration-300 ${
-                    mobileWhoOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  mobileWhoOpen ? "max-h-96 mt-2" : "max-h-0"
-                }`}
-              >
-                <div className="flex flex-col text-gray-300">
-
-                  <Link
-                    href="/about-us"
-                    className="py-3 border-b border-gray-700 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                  >
-                    About Us
-                  </Link>
-
-                  <Link
-                    href="/our-people"
-                    className="py-3 border-b border-gray-700 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                  >
-                    Our People
-                  </Link>
-
-                  <Link
-                    href="/infrastructure"
-                    className="py-3 border-b border-gray-700 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                  >
-                    Infrastructure
-                  </Link>
-
-                  <Link
-                    href="/sustainability"
-                    className="py-3 hover:text-[var(--secondaryColor)] transition-all duration-300"
-                  >
-                    Sustainability
-                  </Link>
-                </div>
-              </div>
-            </li>
-            <li>
-              <button
-                onClick={() => setMobileExpertOpen(!mobileExpertOpen)}
-                className="w-full flex items-center justify-between text-base sm:text-lg font-medium py-2 hover:text-[var(--mainColor)] transition-all duration-300"
-              >
-                Expertise
-
-                <ChevronDown
-                  size={20}
-                  className={`transition-transform duration-300 ${
-                    mobileExpertOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  mobileExpertOpen ? "max-h-96 mt-2" : "max-h-0"
-                }`}
-              >
-                <div className="flex flex-col text-gray-300">
-
-                  <Link
-                    href="/why-us"
-                    className="py-3 border-b border-gray-700 hover:text-[var(--mainColor)] transition-all duration-300"
-                  >
-                    Why Us
-                  </Link>
-
-                  <Link
-                    href="/what-we-do"
-                    className="py-3 border-b border-gray-700 hover:text-[var(--mainColor)] transition-all duration-300"
-                  >
-                    What We Do
-                  </Link>
-
-                  <Link
-                    href="/part-sourcing"
-                    className="py-3 hover:text-[var(--mainColor)] transition-all duration-300"
-                  >
-                    Part Sourcing
-                  </Link>
-                </div>
-              </div>
-            </li>
-            <li className="pt-4 flex items-center border-t border-gray-700">
-              
-              <div
-                className="p-2 rounded-full"
-                // style={{ backgroundColor: "var(--mainColor)" }}
-              >
-                <Phone className="w-5 h-5 text-white" />
-              </div>
-
-              <a
-                href="tel:9717884777"
-                className="text-base sm:text-lg hover:text-[var(--mainColor)] transition-all duration-300"
-              >
-                9717884777
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+      </header>
+      <div className="h-[80px] sm:h-[88px]" />
+    </>
   );
 };
 

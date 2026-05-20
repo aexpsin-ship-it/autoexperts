@@ -1,12 +1,22 @@
-import React from "react";
+"use client";
+import FAQ from "../components/FAQ";
 import HeroSection from "../components/HeroSection";
+import ServicesGrid from "../components/ServicesGrid";
+import ServicesSection from "../components/ServicesSection";
+import Testimonials from "../components/Testimonials";
+import WhoWeAre from "../components/WhoWeAre";
+import WhyAutoExperts from "../components/WhyAutoExperts";
 
-const Home = () => {
+export default function Home() {
   return (
-    <main className="w-full">
+    <>
       <HeroSection />
-    </main>
+      <WhoWeAre />
+      <ServicesGrid />
+      <ServicesSection/>
+      <WhyAutoExperts/>
+      <FAQ/>
+      <Testimonials/>
+    </>
   );
-};
-
-export default Home;
+}
