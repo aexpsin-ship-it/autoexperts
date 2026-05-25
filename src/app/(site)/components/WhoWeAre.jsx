@@ -93,7 +93,7 @@ export default function WhoWeAre() {
               </span>
             </div>
             <h2
-              className="main-heading ani-heading aos-init aos-animate max-w-[700px] text-3xl font-bold leading-[1.15] text-[var(--soft-white)] sm:text-4xl md:text-5xl lg:text-6xl"
+              className="main-heading ani-heading aos-init aos-animate max-w-[700px] text-2xl font-bold leading-[1.15] text-[var(--soft-white)] sm:text-4xl md:text-5xl lg:text-6xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >

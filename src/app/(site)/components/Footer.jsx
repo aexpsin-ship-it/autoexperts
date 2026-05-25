@@ -63,7 +63,12 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-6 text-[var(--soft-white)] tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Who We Are</h3>
+            <h3
+              className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-6 text-[var(--soft-white)] tracking-wide"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Who We Are
+            </h3>
 
             <ul className="space-y-3 sm:space-y-4 text-[var(--cool-gray)]">
               <li>
@@ -77,7 +82,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/our-people"
+                  href="/about-us#ourpeople"
                   className="block text-xs sm:text-base hover:text-[var(--gold-accent)] transition-all duration-300 font-medium"
                 >
                   Our People
@@ -106,7 +111,12 @@ const Footer = () => {
 
           {/* Experts */}
           <div>
-            <h3 className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-6 text-[var(--soft-white)] tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Expertise</h3>
+            <h3
+              className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-6 text-[var(--soft-white)] tracking-wide"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Expertise
+            </h3>
 
             <ul className="space-y-3 sm:space-y-4 text-[var(--cool-gray)]">
               <li>
@@ -135,10 +145,31 @@ const Footer = () => {
                   Part Sourcing
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/contact-us"
+                  className="block text-xs sm:text-base hover:text-[var(--gold-accent)] transition-all duration-300 font-medium"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="block text-xs sm:text-base hover:text-[var(--gold-accent)] transition-all duration-300 font-medium"
+                >
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-6 text-[var(--soft-white)] tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Contact Us</h3>
+            <h3
+              className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-6 text-[var(--soft-white)] tracking-wide"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Contact Us
+            </h3>
 
             <div className="space-y-4 sm:space-y-5 text-[var(--cool-gray)]">
               {/* <p className="leading-7">

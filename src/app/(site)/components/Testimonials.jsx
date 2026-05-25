@@ -175,7 +175,7 @@ const Testimonials = () => {
               delay: 0.1,
             }}
             viewport={{ once: true }}
-            className="mt-5 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl"
+            className="mt-5 text-2xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl"
           >
             Our Customers Feedback
           </motion.h2>

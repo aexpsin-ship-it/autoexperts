@@ -6,13 +6,11 @@ import { carBrands } from "../data";
 
 const EuropeanCarSpecialist = () => {
   return (
-    <section className="bg-[var(--soft-white)] py-3">
+    <section className="bg-[var(--primary)]/80 py-3">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-
-        {/* Hide on Mobile */}
-        <div className="hidden h-[45px] w-full items-center rounded-2xl bg-[var(--primary)] px-6 shadow-lg md:flex lg:w-[250px] lg:flex-shrink-0">
+        <div className="hidden h-[45px] w-full items-center rounded-lg  px-2  md:flex lg:w-[250px] lg:flex-shrink-0">
           <div>
-            <h2 className="text-md font-medium text-white sm:text-lg whitespace-nowrap">
+            <h2 className="text-xl font-medium text-[var(--gold-accent)] sm:text-xl whitespace-nowrap">
               European Car Specialist
             </h2>
           </div>

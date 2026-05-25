@@ -154,7 +154,7 @@ export default function FAQ() {
             FAQ
           </span>
 
-          <h2 className="mt-5 text-3xl font-bold leading-tight text-[var(--primary)] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 text-2xl font-bold leading-tight text-[var(--primary)] sm:text-4xl lg:text-5xl">
             Frequently Asked Questions
           </h2>
 
