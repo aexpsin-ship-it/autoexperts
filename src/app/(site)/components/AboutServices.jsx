@@ -28,7 +28,7 @@ const services = [
 
 export default function AboutServices() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-12 bg-[var(--soft-white)]">
+    <section className="py-24 px-4 sm:px-6 lg:px-12 bg-[var(--primary)]">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
@@ -40,7 +40,7 @@ export default function AboutServices() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl font-black text-[var(--primary)]"
+            className="text-2xl sm:text-3xl font-black text-white"
           >
             Why Choose
             <span className="text-[var(--gold-accent)]">
@@ -54,7 +54,7 @@ export default function AboutServices() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[var(--cool-gray)] mt-6 text-lg"
+            className="text-slate-300 mt-6 text-lg"
           >
             Delivering innovation, precision, and unmatched
             luxury automotive experiences.
@@ -74,9 +74,9 @@ export default function AboutServices() {
                 delay: index * 0.1,
               }}
               viewport={{ once: true }}
-              className="group bg-white rounded-[36px] border border-gray-200 p-8 hover:bg-[var(--primary)] hover:-translate-y-3 transition-all duration-500 shadow-lg hover:shadow-2xl"
+              className="group bg-[var(--primary)]/10 rounded-[36px] border border-white/10 p-8 hover:bg-[var(--primary)] hover:-translate-y-3 transition-all duration-500 shadow-lg hover:shadow-2xl"
             >
-              <div className="w-20 h-20 rounded-3xl bg-[var(--accent-light)] flex items-center justify-center mb-7 group-hover:bg-[var(--gold-accent)] transition-all duration-500">
+              <div className="w-20 h-20 rounded-3xl bg-[var(--gold-accent)]/10 flex items-center justify-center mb-7 group-hover:bg-[var(--gold-accent)] transition-all duration-500">
 
                 <service.icon
                   size={40}
@@ -84,11 +84,11 @@ export default function AboutServices() {
                 />
               </div>
 
-              <h3 className="text-2xl font-bold text-[var(--primary)] group-hover:text-white transition-all duration-300">
+              <h3 className="text-2xl font-bold text-white group-hover:text-white transition-all duration-300">
                 {service.title}
               </h3>
 
-              <p className="text-[var(--cool-gray)] mt-4 leading-relaxed group-hover:text-gray-300 transition-all duration-300">
+              <p className="text-slate-300 mt-4 leading-relaxed group-hover:text-slate-200 transition-all duration-300">
                 {service.desc}
               </p>
 

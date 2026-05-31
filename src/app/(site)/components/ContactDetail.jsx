@@ -13,9 +13,9 @@ const contactDetails = [
     title: "Visit Us",
     icon: MapPin,
     description: [
-      "3rd Floor Rana Nagar Colony",
-      "Chhitupur Sigra Varanasi,",
-      "Uttar Pradesh 221010",
+      "Gali No. 10, 17/6, Main Rohtak Rd,",
+      "Industrial Area,Anand Parbat,",
+      "New Delhi, Delhi, 110015",
     ],
   },
   {
@@ -28,7 +28,7 @@ const contactDetails = [
     id: 3,
     title: "Email Us",
     icon: Mail,
-    description: ["info@banarasdigitalsolution.com"],
+    description: ["info@autoexperts.com"],
   },
   {
     id: 4,
@@ -43,22 +43,22 @@ const contactDetails = [
 
 export default function ContactDetail() {
   return (
-    <section className="relative overflow-hidden bg-[var(--primary)] py-14 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-[var(--primary)] py-16 sm:py-20 lg:py-24">
       {/* Glow Effects */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-[var(--gold-accent)] opacity-10 blur-3xl" />
 
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[var(--gold-accent)] opacity-10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative rounded-[32px] border border-white/10 bg-white p-6 sm:p-8 lg:p-12 shadow-2xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+        <div className="relative rounded-[32px] border border-white/10 bg-white/5 p-4 sm:p-6 lg:p-8 shadow-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-4">
             {contactDetails.map((item) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={item.id}
-                  className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-[var(--soft-white)] p-6 text-center transition-all duration-500 hover:-translate-y-2 hover:border-[var(--gold-accent)] hover:shadow-xl"
+                  className="group relative overflow-hidden rounded-3xl border border-transparent bg-white/5 p-6 text-center transition-all duration-500 hover:-translate-y-2 hover:border-[var(--gold-accent)] hover:shadow-xl"
                 >
                   {/* Glow */}
                   <div className="absolute top-0 right-0 h-24 w-24 rounded-full bg-[var(--gold-accent)] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-20" />
@@ -69,7 +69,7 @@ export default function ContactDetail() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="mt-5 text-xl font-bold text-[var(--primary)]">
+                  <h3 className="mt-5 text-xl font-bold text-white">
                     {item.title}
                   </h3>
 
@@ -78,7 +78,7 @@ export default function ContactDetail() {
                     {item.description.map((line, index) => (
                       <p
                         key={index}
-                        className="text-sm sm:text-base leading-relaxed text-[var(--cool-gray)] break-words"
+                        className="text-sm sm:text-base leading-relaxed text-gray-300 break-words"
                       >
                         {line}
                       </p>

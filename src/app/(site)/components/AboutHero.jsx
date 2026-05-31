@@ -10,7 +10,7 @@ import {
 export default function AboutHero() {
   return (
     <section className="relative min-h-screen  flex items-center overflow-hidden px-4 sm:px-6 lg:px-12 py-24">
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--secondaryColor)] via-black to-[var(--primary)]" />
+      <div className="absolute inset-0 bg-[var(--primary)]" />
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-72 h-72 bg-[var(--gold-accent)] blur-[120px]" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[var(--gold-accent)] blur-[120px]" />
@@ -22,7 +22,7 @@ export default function AboutHero() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[var(--gold-accent)] text-[var(--gold-accent)] text-sm bg-white/5 backdrop-blur-xl mb-6">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[var(--gold-accent)] text-[var(--gold-accent)] text-sm bg-[var(--primary)]/10 backdrop-blur-xl mb-6">
             <Award size={16} />
             Premium Automotive Experts
           </div>
@@ -36,7 +36,7 @@ export default function AboutHero() {
             In Every Journey
           </h1>
 
-          <p className="text-gray-300 mt-7 text-base sm:text-lg leading-relaxed max-w-2xl">
+          <p className="text-slate-300 mt-7 text-base sm:text-lg leading-relaxed max-w-2xl">
             AutoExperts delivers premium automotive solutions,
             diagnostics, detailing, and performance upgrades
             with precision engineering and luxury service.
@@ -49,7 +49,7 @@ export default function AboutHero() {
               <ArrowRight size={20} />
             </button>
 
-            <button className="border border-white/20 bg-white/5 backdrop-blur-xl text-white px-7 py-4 rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300">
+            <button className="border border-[var(--gold-accent)] bg-[var(--primary)]/15 text-white px-7 py-4 rounded-2xl font-semibold hover:bg-[var(--primary)]/30 transition-all duration-300">
               Contact Experts
             </button>
           </div>
@@ -65,7 +65,7 @@ export default function AboutHero() {
         >
           <div className="absolute inset-0 bg-[var(--gold-accent)] blur-[120px] opacity-20 rounded-full" />
 
-          <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+          <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[var(--primary)]/10 backdrop-blur-xl shadow-2xl">
 
             <Image
               src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1400&auto=format&fit=crop"

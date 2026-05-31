@@ -22,13 +22,9 @@ export default function BlogEditPage() {
   const [blog, setBlog] = useState({
     title: "",
     description: "",
-    content: "",
     category: "General",
     tags: "",
   });
-  const [existingContentImages, setExistingContentImages] = useState([]);
-  const [contentImages, setContentImages] = useState([]);
-  const [contentImagePreviews, setContentImagePreviews] = useState([]);
   const [contentBlocks, setContentBlocks] = useState([]);
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
@@ -54,12 +50,10 @@ export default function BlogEditPage() {
         setBlog({
           title: data.data.title || "",
           description: data.data.description || "",
-          content: data.data.content || "",
           category: data.data.category || "General",
           tags: (data.data.tags || []).join(", "),
         });
         setImagePreview(data.data.image || "");
-        setExistingContentImages(data.data.contentImages || []);
         setContentBlocks(
           (data.data.contentBlocks || []).map((block) => ({
             text: block.text || "",
@@ -130,16 +124,6 @@ export default function BlogEditPage() {
     );
   };
 
-  const handleContentImagesChange = (event) => {
-    const files = Array.from(event.target.files || []);
-    setContentImages(files);
-    setContentImagePreviews(files.map((file) => URL.createObjectURL(file)));
-  };
-
-  const handleRemoveExistingContentImage = (src) => {
-    setExistingContentImages((prev) => prev.filter((image) => image !== src));
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
@@ -150,20 +134,17 @@ export default function BlogEditPage() {
       const formData = new FormData();
       formData.append("title", blog.title.trim());
       formData.append("description", blog.description.trim());
-      formData.append("content", blog.content.trim());
       formData.append("category", blog.category.trim() || "General");
       formData.append("tags", blog.tags.trim());
       if (imageFile) {
         formData.append("image", imageFile);
       }
 
-      const blocksToSave = contentBlocks
-        .map((block) => ({
-          text: block.text.trim(),
-          image: typeof block.image === "string" ? block.image : "",
-          newImageFile: block.newImageFile,
-        }))
-        .filter((block) => block.text || block.image || block.newImageFile);
+      const blocksToSave = contentBlocks.map((block) => ({
+        text: block.text.trim(),
+        image: typeof block.image === "string" ? block.image : "",
+        newImageFile: block.newImageFile,
+      }));
 
       if (blocksToSave.length > 0) {
         formData.append(
@@ -179,17 +160,6 @@ export default function BlogEditPage() {
           }
         });
       }
-
-      formData.append(
-        "existingContentImages",
-        JSON.stringify(existingContentImages)
-      );
-
-      contentImages.forEach((file) => {
-        if (file?.name) {
-          formData.append("contentImages", file);
-        }
-      });
 
       const response = await fetch(`/api/blog/${id}`, {
         method: "PUT",
@@ -416,19 +386,6 @@ export default function BlogEditPage() {
                 />
               </label>
 
-              <label className="space-y-2">
-                <span className="text-sm font-semibold text-slate-700">Content</span>
-                <textarea
-                  name="content"
-                  value={blog.content}
-                  onChange={handleChange}
-                  required
-                  rows={8}
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-black focus:ring-2 focus:ring-black/10"
-                  placeholder="Update the full blog content"
-                />
-              </label>
-
               <div className="grid gap-6 sm:grid-cols-2">
                 <label className="space-y-2">
                   <span className="text-sm font-semibold text-slate-700">Cover Image</span>
@@ -457,59 +414,6 @@ export default function BlogEditPage() {
                   </div>
                 </div>
               </div>
-
-              <label className="space-y-2">
-                <span className="text-sm font-semibold text-slate-700">Existing Content Images</span>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {existingContentImages.length > 0 ? (
-                    existingContentImages.map((src) => (
-                      <div key={src} className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
-                        <img
-                          src={src}
-                          alt="Existing content"
-                          className="h-40 w-full object-cover"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveExistingContentImage(src)}
-                          className="absolute right-3 top-3 rounded-full bg-black/70 px-3 py-2 text-xs font-semibold text-white transition hover:bg-black"
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500">
-                      No content images added yet.
-                    </div>
-                  )}
-                </div>
-              </label>
-
-              <label className="space-y-2">
-                <span className="text-sm font-semibold text-slate-700">Add Content Images</span>
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={handleContentImagesChange}
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none file:mr-4 file:rounded-full file:border-0 file:bg-black file:px-3 file:py-2 file:text-sm file:text-white"
-                />
-              </label>
-
-              {contentImagePreviews.length > 0 && (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {contentImagePreviews.map((preview, index) => (
-                    <div key={index} className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
-                      <img
-                        src={preview}
-                        alt={`New content preview ${index + 1}`}
-                        className="h-40 w-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>

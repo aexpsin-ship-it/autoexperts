@@ -65,39 +65,35 @@ export default function Office() {
 };
 
   return (
-    <section className="bg-[var(--background)] py-14 sm:py-16 lg:py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-          {/* Left Side Form */}
-          <div className="relative overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-2xl p-5 sm:p-8 lg:p-10">
-            {/* Glow Effect */}
-            <div className="absolute -top-20 -right-20 h-52 w-52 rounded-full bg-[var(--gold-accent)] opacity-10 blur-3xl" />
+    <section className="relative overflow-hidden bg-[var(--primary)] py-16 sm:py-20 lg:py-24">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-[var(--gold-accent)] opacity-10 blur-3xl" />
 
-            <div className="relative z-10">
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[var(--gold-accent)] opacity-10 blur-3xl" />
+
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+          {/* Left Side Form */}
+          <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-2xl p-5 sm:p-8 lg:p-10 h-full flex">
+            <div className="relative z-10 flex-1">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold-accent)]/30 bg-[var(--accent-light)] px-5 py-2 text-sm font-semibold text-[var(--gold-accent)]">
                 Contact Us
               </div>
 
               {/* Heading */}
-              <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-[var(--primary)]">
+              <h2 className="mt-6 text-2xl sm:text-3xl lg:text-4xl font-black leading-tight text-white">
                 Let’s Connect
-                <span className="text-[var(--gold-accent)]">
-                  {" "}
-                  With Us
-                </span>
+                <span className="text-[var(--gold-accent)]"> With Us</span>
               </h2>
 
-              <p className="mt-5 text-base leading-relaxed text-[var(--cool-gray)]">
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-gray-300">
                 Fill out the form and our expert team will contact you shortly
                 with the best solutions for your business and digital growth.
               </p>
 
               {/* Form */}
-              <form
-                onSubmit={handleSubmit}
-                className="mt-8 space-y-5"
-              >
+              <form onSubmit={handleSubmit} className="mt-8 space-y-5 overflow-auto">
                 {/* Name */}
                 <div className="relative">
                   <User
@@ -112,7 +108,7 @@ export default function Office() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="h-14 w-full rounded-2xl border border-gray-300 bg-[var(--soft-white)] pl-12 pr-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
+                    className="h-14 w-full rounded-2xl border border-white/20 bg-white/5 pl-12 pr-4 text-white placeholder:text-white/70 outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
                   />
                 </div>
 
@@ -130,7 +126,7 @@ export default function Office() {
                     onChange={handleChange}
                     placeholder="Email Address"
                     required
-                    className="h-14 w-full rounded-2xl border border-gray-300 bg-[var(--soft-white)] pl-12 pr-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
+                    className="h-14 w-full rounded-2xl border border-white/20 bg-white/5 pl-12 pr-4 text-white placeholder:text-white/70 outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
                   />
                 </div>
 
@@ -150,7 +146,7 @@ export default function Office() {
                     required
                     pattern="[0-9]{10}"
                     maxLength={10}
-                    className="h-14 w-full rounded-2xl border border-gray-300 bg-[var(--soft-white)] pl-12 pr-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
+                    className="h-14 w-full rounded-2xl border border-white/20 bg-white/5 pl-12 pr-4 text-white placeholder:text-white/70 outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
                   />
                 </div>
 
@@ -168,7 +164,7 @@ export default function Office() {
                     onChange={handleChange}
                     placeholder="Subject"
                     required
-                    className="h-14 w-full rounded-2xl border border-gray-300 bg-[var(--soft-white)] pl-12 pr-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
+                    className="h-14 w-full rounded-2xl border border-white/20 bg-white/5 pl-12 pr-4 text-white placeholder:text-white/70 outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
                   />
                 </div>
 
@@ -181,7 +177,7 @@ export default function Office() {
                     placeholder="Write your message..."
                     rows="5"
                     required
-                    className="w-full resize-none rounded-2xl border border-gray-300 bg-[var(--soft-white)] p-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
+                    className="w-full resize-none rounded-2xl border border-white/20 bg-white/5 p-4 text-white placeholder:text-white/70 outline-none transition-all duration-300 focus:border-[var(--gold-accent)] focus:ring-4 focus:ring-[var(--accent-light)]"
                   />
                 </div>
 
@@ -189,7 +185,7 @@ export default function Office() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-[var(--gold-accent)] px-8 py-4 font-semibold text-black transition-all duration-300 hover:bg-[var(--primary)] hover:text-white"
+                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-[var(--gold-accent)] px-8 py-4 font-semibold text-black transition-all duration-300 hover:bg-white"
                 >
                   {loading ? "Sending..." : "Send Message"}
 
@@ -203,7 +199,7 @@ export default function Office() {
           </div>
 
           {/* Right Side Map */}
-          <div className="overflow-hidden rounded-[32px] border border-gray-200 shadow-2xl min-h-[400px] lg:min-h-full">
+          <div className="overflow-hidden rounded-[32px] border border-white/10 shadow-2xl bg-white/5 h-64 sm:h-80 md:h-[520px] lg:h-full">
             <iframe
               title="Office Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14018.659540780507!2d77.19921155806023!3d28.701969666845984!2m3!1f0!2f0!3f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d017fbbfc6e7d%3A0x7f21dd7b64e26c26!2sDG%20Royals%20Best%20Digital%20Marketing%20Graphic%20Designing%20%26%20Web%20Design%20Development%20Institute%20in%20Delhi!5e0!3m2!1sen!2sin!4v1719120341663!5m2!1sen!2sin"
@@ -211,7 +207,7 @@ export default function Office() {
               height="100%"
               allowFullScreen=""
               loading="lazy"
-              className="h-full min-h-[400px] w-full border-0"
+              className="h-full w-full border-0"
             />
           </div>
         </div>

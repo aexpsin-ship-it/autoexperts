@@ -11,7 +11,7 @@ export default function SiteLayout({ children }) {
       <AOSProvider />
       <Header />
       {/* <EuropeanCarSpecialist /> */}
-      <main className="w-full min-h-screen overflow-hidden">
+      <main className="w-full min-h-screen overflow-hidden bg-black">
         {children}
       </main>
       <CallToAction />

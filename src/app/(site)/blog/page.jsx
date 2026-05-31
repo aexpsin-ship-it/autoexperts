@@ -151,18 +151,18 @@ export default function BlogPage() {
   };
 
   return (
-    <section className="min-h-screen overflow-hidden bg-gradient-to-br from-slate-100 via-white to-slate-200">
+    <section className="min-h-screen overflow-hidden bg-[var(--primary)]">
       {/* HERO BANNER */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-black via-slate-900 to-slate-800">
+      <div className="relative overflow-hidden bg-gradient-to-r from-[var(--primary)] via-slate-900 to-slate-800">
         <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
 
-        <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-yellow-400/10 blur-3xl" />
+        <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-[var(--gold-accent)]/10 blur-3xl" />
 
-        <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-[var(--primary)]/10 blur-3xl" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="max-w-3xl">
-            <span className="inline-flex rounded-full border border-white/10 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-yellow-300 backdrop-blur">
+            <span className="inline-flex rounded-full border border-slate-700 bg-[var(--primary)]/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--gold-accent)] backdrop-blur">
               Latest Articles & Insights
             </span>
 
@@ -184,12 +184,12 @@ export default function BlogPage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="#blogs"
-                className="inline-flex h-14 items-center justify-center rounded-2xl bg-white px-8 text-sm font-semibold text-black transition hover:bg-slate-200"
+                className="inline-flex h-14 items-center justify-center rounded-2xl border border-slate-700 bg-[var(--primary)]/20 px-8 text-sm font-semibold text-white backdrop-blur transition hover:bg-[var(--primary)]/30"
               >
                 Explore Blogs
               </Link>
 
-              <button className="inline-flex h-14 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-8 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-black">
+              <button className="inline-flex h-14 items-center justify-center rounded-2xl border border-slate-700 bg-[var(--primary)]/20 px-8 text-sm font-semibold text-white backdrop-blur transition hover:bg-[var(--primary)]/30">
                 Latest News
               </button>
             </div>
@@ -203,14 +203,14 @@ export default function BlogPage() {
         className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8"
       >
         {/* SEARCH */}
-        <div className="mb-10 rounded-[32px] border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+        <div className="mb-10 rounded-[32px] border border-slate-700 bg-[var(--primary)]/20 p-5 shadow-sm sm:p-7">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="text-2xl font-black text-slate-900">
+              <h2 className="text-2xl font-black text-white">
                 Search & Filter Blogs
               </h2>
 
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-slate-300">
                 Find articles by title,
                 category, or keywords.
               </p>
@@ -226,7 +226,7 @@ export default function BlogPage() {
                 onChange={(e) =>
                   setSearch(e.target.value)
                 }
-                className="h-14 w-full rounded-2xl border border-slate-200 bg-slate-50 pl-14 pr-5 text-sm font-medium text-slate-900 outline-none transition focus:border-black focus:bg-white focus:ring-4 focus:ring-black/5"
+                className="h-14 w-full rounded-2xl border border-slate-700 bg-[var(--primary)]/10 pl-14 pr-5 text-sm font-medium text-white outline-none transition focus:border-[var(--gold-accent)] focus:bg-[var(--primary)]/20 focus:ring-4 focus:ring-[var(--gold-accent)]/20"
               />
             </div>
           </div>
@@ -241,11 +241,10 @@ export default function BlogPage() {
                     category
                   )
                 }
-                className={`rounded-2xl px-5 py-3 text-sm font-semibold transition-all duration-300 ${
-                  selectedCategory ===
-                  category
-                    ? "bg-black text-white shadow-lg"
-                    : "border border-slate-200 bg-slate-50 text-slate-700 hover:border-black hover:bg-black hover:text-white"
+                className={`rounded-2xl border px-5 py-3 text-sm font-semibold transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "border-[var(--gold-accent)] bg-[var(--gold-accent)] text-white shadow-lg"
+                    : "border border-[var(--gold-accent)]/20 bg-[var(--primary)]/10 text-slate-200 hover:border-[var(--gold-accent)] hover:bg-[var(--gold-accent)]/20 hover:text-white"
                 }`}
               >
                 {category}
@@ -262,7 +261,7 @@ export default function BlogPage() {
             }).map((_, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-[30px] bg-white shadow-sm"
+                className="overflow-hidden rounded-[30px] bg-[var(--primary)]/20 border border-slate-700 shadow-sm"
               >
                 <div className="h-72 animate-pulse bg-slate-200" />
 
@@ -282,12 +281,12 @@ export default function BlogPage() {
           <>
             {/* NO BLOG */}
             {paginatedBlogs.length === 0 ? (
-              <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[32px] border border-slate-200 bg-white px-5 text-center shadow-sm">
-                <h3 className="text-3xl font-black text-slate-900">
+              <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[32px] border border-slate-700 bg-[var(--primary)]/20 px-5 text-center shadow-sm">
+                <h3 className="text-3xl font-black text-white">
                   No Blogs Found
                 </h3>
 
-                <p className="mt-3 max-w-md text-sm leading-7 text-slate-500">
+                <p className="mt-3 max-w-md text-sm leading-7 text-slate-300">
                   No matching blogs were
                   found for your search or
                   selected category.
@@ -304,7 +303,7 @@ export default function BlogPage() {
                         href={`/blog/${blog.slug}`}
                         className="group"
                       >
-                        <article className="flex h-full flex-col overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                        <article className="flex h-full flex-col overflow-hidden rounded-[30px] border border-slate-700 bg-[var(--primary)]/20 shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
                           {/* IMAGE */}
                           <div className="relative h-72 overflow-hidden">
                             <Image
@@ -317,10 +316,10 @@ export default function BlogPage() {
                               className="object-cover transition duration-700 group-hover:scale-110"
                             />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/80 via-[var(--primary)]/20 to-transparent" />
 
                             <div className="absolute left-5 top-5">
-                              <span className="rounded-full bg-white/90 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-black backdrop-blur">
+                              <span className="rounded-full bg-[var(--primary)]/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur">
                                 {blog.category ||
                                   "General"}
                               </span>
@@ -341,7 +340,7 @@ export default function BlogPage() {
                             </div>
 
                             {/* TITLE */}
-                            <h2 className="text-xl font-black leading-snug text-slate-900 transition group-hover:text-blue-600">
+                            <h2 className="text-xl font-black leading-snug text-white transition group-hover:text-[var(--gold-accent)]">
                               {truncateTitle(
                                 blog.title,
                                 7
@@ -349,7 +348,7 @@ export default function BlogPage() {
                             </h2>
 
                             {/* DESCRIPTION */}
-                            <p className="mt-4 text-sm leading-8 text-slate-600">
+                            <p className="mt-4 text-sm leading-8 text-white/80">
                               {truncateDescription(
                                 blog.description,
                                 15
@@ -358,7 +357,7 @@ export default function BlogPage() {
 
                             {/* BUTTON */}
                             <div className="mt-auto pt-8">
-                              <span className="inline-flex items-center gap-2 text-sm font-bold text-blue-600">
+                              <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--gold-accent)]">
                                 Read Full Article
 
                                 <FiArrowRight className="transition group-hover:translate-x-1" />
@@ -376,13 +375,13 @@ export default function BlogPage() {
                   <div className="mt-14 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-sm font-medium text-slate-500">
                       Showing{" "}
-                      <span className="font-bold text-slate-900">
+                      <span className="font-bold text-white">
                         {(currentPage - 1) *
                           BLOGS_PER_PAGE +
                           1}
                       </span>{" "}
                       to{" "}
-                      <span className="font-bold text-slate-900">
+                      <span className="font-bold text-white">
                         {Math.min(
                           currentPage *
                             BLOGS_PER_PAGE,
@@ -390,7 +389,7 @@ export default function BlogPage() {
                         )}
                       </span>{" "}
                       of{" "}
-                      <span className="font-bold text-slate-900">
+                      <span className="font-bold text-white">
                         {
                           filteredBlogs.length
                         }
@@ -413,7 +412,7 @@ export default function BlogPage() {
                         disabled={
                           currentPage === 1
                         }
-                        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40"
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-700 bg-[var(--primary)]/15 text-slate-200 transition hover:bg-[var(--primary)]/25 disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         <FiChevronLeft />
                       </button>
@@ -432,11 +431,10 @@ export default function BlogPage() {
                                 index + 1
                               )
                             }
-                            className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-bold transition ${
-                              currentPage ===
-                              index + 1
-                                ? "bg-black text-white"
-                                : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-100"
+                            className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border text-sm font-bold transition ${
+                              currentPage === index + 1
+                                ? "border-[var(--gold-accent)] bg-[var(--gold-accent)] text-white"
+                                : "border border-slate-700 bg-[var(--primary)]/15 text-slate-200 hover:bg-[var(--primary)]/25"
                             }`}
                           >
                             {index + 1}
@@ -459,7 +457,7 @@ export default function BlogPage() {
                           currentPage ===
                           totalPages
                         }
-                        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40"
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-700 bg-[var(--primary)]/15 text-slate-200 transition hover:bg-[var(--primary)]/25 disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         <FiChevronRight />
                       </button>

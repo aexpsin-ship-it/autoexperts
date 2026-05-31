@@ -37,21 +37,16 @@ const Header = () => {
               className="w-[160px] sm:w-[220px] lg:w-[330px] h-auto object-contain"
             />
           </Link>
-          <div className="hidden lg:flex items-center gap-3 px-4 py-2 rounded-lg border border-[#D4AF37]/30 bg-[#D4AF37]/5">
-            <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center">
-              <Phone className="w-5 h-5 text-[#D4AF37]" />
-            </div>
-
-            <a
-              href="tel:9717884777"
-              className="text-white hover:text-[#D4AF37] font-bold text-lg tracking-[3px] uppercase transition-all duration-300"
-              style={{
-                fontFamily: "'Orbitron', sans-serif",
-              }}
-            >
+          <a
+            href="tel:9717884777"
+            className="lg:flex hidden items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 transition-all duration-300 group relative"
+            title="Call us"
+          >
+            <Phone className="w-5 h-5 text-[#D4AF37] group-hover:scale-110 transition-transform" />
+            <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-slate-900 text-[#D4AF37] text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
               9717884777
-            </a>
-          </div>
+            </span>
+          </a>
 
           <a
             href="tel:9717884777"

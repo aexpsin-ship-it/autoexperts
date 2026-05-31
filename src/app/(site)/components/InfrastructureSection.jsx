@@ -38,7 +38,7 @@ export default function InfrastructureSection({
   data = infrastructureData,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#0d0d0d] py-20 text-white">
+    <section className="relative overflow-hidden bg-[var(--primary)] py-20 text-white">
       <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-10 relative z-10">
@@ -49,7 +49,7 @@ export default function InfrastructureSection({
           viewport={{ once: true }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm uppercase tracking-[3px] text-[#c7a66b]">
+          <span className="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm uppercase tracking-[3px] text-[var(--gold-accent)]">
             AutoExperts Garage
           </span>
 
@@ -68,9 +68,9 @@ export default function InfrastructureSection({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="group rounded-[30px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[#c7a66b]/40 hover:bg-white/[0.06]"
+              className="group rounded-[30px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[var(--gold-accent)]/40 hover:bg-white/[0.06]"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#c7a66b]/10 text-[#c7a66b] transition-all duration-300 group-hover:scale-110">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--gold-accent)]/10 text-[var(--gold-accent)] transition-all duration-300 group-hover:scale-110">
                 {item.icon}
               </div>
 

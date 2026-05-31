@@ -4,10 +4,10 @@ import Office from "../components/Office";
 
 export default function ContactUsPage() {
   return (
-    <div className="w-full overflow-hidden">
+    <main className="w-full overflow-hidden bg-black">
     <ContactBanner/>
     <Office/>
     <ContactDetail/>
-    </div>
+    </main>
   );
 }

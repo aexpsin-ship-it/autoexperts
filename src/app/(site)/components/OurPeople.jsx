@@ -45,7 +45,7 @@ const teamMembers = [
 
 export default function OurPeople() {
   return (
-    <section className="relative overflow-hidden bg-[var(--background)] py-24 px-4 sm:px-6 lg:px-12">
+    <section className="relative overflow-hidden bg-[var(--primary)] py-24 px-4 sm:px-6 lg:px-12">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-[400px] w-[400px] bg-[var(--gold-accent)] opacity-10 blur-[140px]" />
 
@@ -59,7 +59,7 @@ export default function OurPeople() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--gold-accent)] bg-[var(--accent-light)] px-5 py-2 text-sm text-[var(--gold-accent)]"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--gold-accent)] bg-[var(--primary)]/10 px-5 py-2 text-sm text-[var(--gold-accent)]"
           >
             Our Team
           </motion.div>
@@ -69,7 +69,7 @@ export default function OurPeople() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-6 text-2xl font-black text-[var(--primary)] sm:text-3xl lg:text-4xl"
+            className="mt-6 text-2xl font-black text-white sm:text-3xl lg:text-4xl"
           >
             Meet Our{" "}
             <span className="text-[var(--gold-accent)]">
@@ -82,7 +82,7 @@ export default function OurPeople() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="mt-6 text-lg leading-relaxed text-[var(--cool-gray)]"
+            className="mt-6 text-lg leading-relaxed text-slate-300"
           >
             A passionate team of automotive professionals delivering
             innovation, luxury vehicle expertise, and premium customer
@@ -102,7 +102,7 @@ export default function OurPeople() {
                 delay: index * 0.1,
               }}
               viewport={{ once: true }}
-              className="group relative overflow-hidden rounded-[36px] border border-gray-200 bg-white shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+              className="group relative overflow-hidden rounded-[36px] border border-white/10 bg-[var(--primary)]/10 shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
             >
               {/* Image */}
               <div className="relative overflow-hidden">
@@ -119,15 +119,15 @@ export default function OurPeople() {
 
                 {/* Social Icons */}
                 <div className="absolute top-5 right-5 flex translate-x-10 flex-col gap-3 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
-                  <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:bg-[var(--gold-accent)] hover:text-black">
+                  <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[var(--primary)]/10 text-white backdrop-blur-xl transition-all duration-300 hover:bg-[var(--gold-accent)] hover:text-black">
                     <Globe size={18} />
                   </button>
 
-                  <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:bg-[var(--gold-accent)] hover:text-black">
+                  <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[var(--primary)]/10 text-white backdrop-blur-xl transition-all duration-300 hover:bg-[var(--gold-accent)] hover:text-black">
                     <Mail size={18} />
                   </button>
 
-                  <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:bg-[var(--gold-accent)] hover:text-black">
+                  <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[var(--primary)]/10 text-white backdrop-blur-xl transition-all duration-300 hover:bg-[var(--gold-accent)] hover:text-black">
                     <Phone size={18} />
                   </button>
                 </div>
@@ -150,7 +150,7 @@ export default function OurPeople() {
 
               {/* Content */}
               <div className="p-6">
-                <p className="leading-relaxed text-[var(--cool-gray)]">
+                <p className="leading-relaxed text-slate-300">
                   {member.desc}
                 </p>
 

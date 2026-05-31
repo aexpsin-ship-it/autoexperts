@@ -6,7 +6,7 @@ import OurPeople from "../components/OurPeople";
 
 export default function AboutUsPage() {
   return (
-    <div className="w-full overflow-hidden">
+    <main className="w-full overflow-hidden">
       <AboutHero />
       <AboutStats />
       <AboutServices />
@@ -14,6 +14,6 @@ export default function AboutUsPage() {
       <section id="ourpeople">
         <OurPeople />
       </section>
-    </div>
+    </main>
   );
 }
